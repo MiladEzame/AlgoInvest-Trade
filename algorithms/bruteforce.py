@@ -23,7 +23,6 @@ def permutations():
                 selected_actions = []
                 for act in iter:
                     # O(n) insert
-                    print(act)
                     selected_actions.append(act[0])
                     cout += int(act[1])
                     valo += int(act[1]) * float(act[2])

@@ -19,12 +19,28 @@ def creation_matrice(LIMIT, all_actions):
     matrice = [[0 for x in range(LIMIT+1)] for x in range(len(all_actions) + 1)]
 
     for i in range(1, len(all_actions) + 1):
-        for p in range(1, LIMIT + 1):
-            if int(all_actions[i-1][1]) <= p:
-                matrice[i][p] = max((float(all_actions[i-1][2]) * int(all_actions[i-1][1]) +
-                                     int(all_actions[i-1][1])), matrice[i-1][p])
+        for c in range(1, LIMIT + 1):
+            if int(all_actions[i-1][1]) <= c:
+                matrice[i][c] = max((float(all_actions[i-1][2]) * int(all_actions[i-1][1]) +
+                                     int(all_actions[i-1][1])), matrice[i-1][c])
             else:
-                matrice[i][p] = matrice[i-1][p]
+                matrice[i][c] = matrice[i-1][c]
+
+    c = LIMIT
+    n = len(all_actions)
+    actions_selectionnees = []
+
+    while c >= 0 and n >= 0:
+        a = all_actions[n-1]
+        if matrice[n][c] == int(matrice[n-1][c-a[1]]) + a[2]:
+            actions_selectionnees.append(a)
+            c -= a[1]
+
+        n -= 1
+
+    print(matrice[-1][-1])
+    print("ACTIONS SELECTED")
+    print(actions_selectionnees)
 
 
 if __name__ == "__main__":
