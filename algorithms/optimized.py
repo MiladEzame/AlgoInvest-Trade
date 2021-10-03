@@ -19,8 +19,8 @@ def creation_matrice(LIMIT, all_actions):
     matrice = [[0 for x in range(LIMIT+1)] for x in range(len(all_actions) + 1)]
     for i in range(1, len(all_actions) + 1):
         for c in range(1, LIMIT + 1):
-            if int(all_actions[i-1][1]) <= c:
-                matrice[i][c] = max(float(all_actions[i-1][2]) * int(all_actions[i-1][1]) +
+            if float(all_actions[i-1][1]) <= c:
+                matrice[i][c] = max(float(all_actions[i-1][2]) * float(all_actions[i-1][1]) +
                                     matrice[i-1][c-(int(all_actions[i-1][1]))], matrice[i-1][c])
             else:
                 matrice[i][c] = matrice[i-1][c]
@@ -30,9 +30,9 @@ def creation_matrice(LIMIT, all_actions):
 
     while c >= 0 and n >= 0:
         a = all_actions[n-1]
-        if matrice[n][c] == int(matrice[n-1][c-(int(a[1]))]) + (float(a[2])):
+        if matrice[n][c] == int(matrice[n-1][c-(int(a[1]))]) + (float(a[2]) * float(a[1])):
             actions_selectionnees.append(a)
-            c -= a[1]
+            c -= int(a[1])
 
         n -= 1
 
