@@ -11,7 +11,7 @@
 	```python 	
 	git clone https://github.com/MiladEzame/AlgoInvest-Trade.git
 	```
-## Creating a virtual environment to run the API
+## Creating a virtual environment
 
 - Python installation is required for the following process. You can download Python on python.org.
 Python3 includes venv that allows us to create a virtual environment very easily.
