@@ -61,6 +61,15 @@ You can run the file by using the following command :
 ## Important information about the differents files/folders 
 
 - bruteforce.py
+	Creates all the possible combinations and gets the best result out of it (10sec).
+
+- optimized.py
+	Creates a matrix and fills it with the results by comparing the best result for each case. 
+	Once the matrix is filled, gets the most optimized result in a shorter period of time (0.02sec).
+
+- *.csv
+	Tested files, some of the data are corrupted, they are cleansed inside the optimized.py file. 
+
 
 ## Contributors 
 
